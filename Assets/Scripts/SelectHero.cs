@@ -7,7 +7,7 @@ public class SelectHero : MonoBehaviour, IPointerDownHandler
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        SpawnManager.spawn.spawnPrefab = gameObject;
-        Debug.Log(SpawnManager.spawn.spawnPrefab);
+        GameManager.manager.hero = gameObject;
+        Debug.Log(GameManager.manager.hero);
     }
 }

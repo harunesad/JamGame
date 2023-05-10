@@ -2,16 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] List<TextMeshProUGUI> heroesName; 
+    [SerializeField] List<TextMeshProUGUI> heroesName;
+    [SerializeField] Button playButton;
+    public GameObject heroesPanel;
     void Start()
     {
         for (int i = 0; i < heroesName.Count; i++)
         {
-            HeroesInfo hero = SpawnManager.spawn.heroesInfo;
+            HeroesInfo hero = GameManager.manager.heroesInfo;
             heroesName[i].text = $"{hero.heroes[i].hero.name} \n H:{hero.heroes[i].heroHealth}  A:{hero.heroes[i].heroAttack}  AS:{hero.heroes[i].heroAttackSpeed}";
         }
+        playButton.onClick.AddListener(Play);
+    }
+    public void Play()
+    {
+        for (int i = 0; i < GameManager.manager.myHeroes.Count; i++)
+        {
+            if (GameManager.manager.myHeroes[i] == null)
+            {
+                Debug.Log("sadsad");
+                return;
+            }
+        }
+        heroesPanel.SetActive(false);
+        EnemiesControl.enemiesControl.InvokeStart();
     }
 }

@@ -6,19 +6,19 @@ public class SelectHeroPoint : MonoBehaviour
 {
     private void OnMouseDown()
     {
-        if (SpawnManager.spawn.spawnPrefab != null)
+        if (GameManager.manager.hero != null)
         {
-            for (int i = 0; i < SpawnManager.spawn.heroesSpawnPoints.Count; i++)
+            for (int i = 0; i < GameManager.manager.points.Count; i++)
             {
-                if (gameObject.name == SpawnManager.spawn.heroesSpawnPoints[i].name)
+                if (gameObject.name == GameManager.manager.points[i].name)
                 {
-                    SpawnManager.spawn.pointCount = i;
+                    GameManager.manager.pointCount = i;
                 }
             }
-            SpawnManager.spawn.spawnPoint = gameObject;
-            Debug.Log(SpawnManager.spawn.spawnPoint);
-            SpawnManager.spawn.SpawnObject();
-            SpawnManager.spawn.spawnPrefab = null;
+            GameManager.manager.heroPoint = gameObject;
+            Debug.Log(GameManager.manager.heroPoint);
+            GameManager.manager.SpawnObject();
+            GameManager.manager.hero = null;
         }
     }
 }
