@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < heroesName.Count; i++)
         {
             HeroesInfo hero = GameManager.manager.heroesInfo;
-            heroesName[i].text = $"{hero.heroes[i].hero.name} \n H:{hero.heroes[i].heroHealth}  A:{hero.heroes[i].heroAttack}  AS:{hero.heroes[i].heroAttackSpeed}";
+            heroesName[i].text = $"{JsonSave.jsonSave.sv.heroes[i].heroName} \n H:{JsonSave.jsonSave.sv.heroes[i].heroHealth}  A:{JsonSave.jsonSave.sv.heroes[i].heroAttack}  AS:{hero.heroes[i].heroAttackSpeed}";
         }
         playButton.onClick.AddListener(Play);
     }

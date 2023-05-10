@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public List<bool> isEmpty;
     public List<Transform> points;
     public int pointCount;
+    public LayerMask enemyLayer;
     private void Awake()
     {
         manager = this;
