@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JsonSave : MonoBehaviour
@@ -13,9 +11,5 @@ public class JsonSave : MonoBehaviour
     void Start()
     {
         sv = SaveManager.Load();
-    }
-    void Update()
-    {
-        
     }
 }

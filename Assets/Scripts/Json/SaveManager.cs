@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
@@ -31,7 +29,7 @@ public static class SaveManager
         }
         else
         {
-            Debug.Log("sadas");
+            Debug.Log("Ulaþýlamadý");
         }
         return so;
     }

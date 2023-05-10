@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class EnemiesControl : MonoBehaviour
 {
@@ -17,12 +16,25 @@ public class EnemiesControl : MonoBehaviour
     }
     public void EnemiesActive()
     {
-        int index = Random.Range(0, enemies.Count);
-        int pointIndex = Random.Range(0, GameManager.manager.points.Count);
-        enemies[index].transform.position = GameManager.manager.points[pointIndex].position + Vector3.right * 16;
-        enemies[index].gameObject.SetActive(true);
-        enemies.RemoveAt(index);
-        CannonFondler.cannon.EnemyAttack();
-        BigGuns.bigGuns.EnemyAttack();
+        int enemyCount = FindObjectsOfType<Rigidbody2D>().Length;
+        if (enemies.Count > 0)
+        {
+            int index = Random.Range(0, enemies.Count);
+            int pointIndex = Random.Range(0, GameManager.manager.points.Count);
+            enemies[index].transform.position = GameManager.manager.points[pointIndex].position + Vector3.right * 16;
+            enemies[index].gameObject.SetActive(true);
+            enemies.RemoveAt(index);
+        }
+        if (enemyCount == 0)
+        {
+            int levelCount = PlayerPrefs.GetInt("Level");
+            levelCount++;
+            PlayerPrefs.SetInt("Level", levelCount);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        for (int i = 0; i < GameManager.manager.myHeroes.Count; i++)
+        {
+            GameManager.manager.myHeroes[i].GetComponent<BulletSpawn>().EnemyAttack();
+        }
     }
 }

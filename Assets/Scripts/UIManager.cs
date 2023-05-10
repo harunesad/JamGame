@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -8,13 +7,26 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] List<TextMeshProUGUI> heroesName;
     [SerializeField] Button playButton;
+    [SerializeField] Text levelText;
+    string levelKey = "Level";
     public GameObject heroesPanel;
     void Start()
     {
+        if (PlayerPrefs.HasKey(levelKey))
+        {
+            levelText.text = "Level " + PlayerPrefs.GetInt(levelKey);
+        }
+        else
+        {
+            levelText.text = "Level 1";
+            PlayerPrefs.SetInt(levelKey, 1);
+        }
         for (int i = 0; i < heroesName.Count; i++)
         {
-            HeroesInfo hero = GameManager.manager.heroesInfo;
-            heroesName[i].text = $"{JsonSave.jsonSave.sv.heroes[i].heroName} \n H:{JsonSave.jsonSave.sv.heroes[i].heroHealth}  A:{JsonSave.jsonSave.sv.heroes[i].heroAttack}  AS:{hero.heroes[i].heroAttackSpeed}";
+            heroesName[i].text = $"{JsonSave.jsonSave.sv.heroes[i].heroName} " +
+                $"\n H:{JsonSave.jsonSave.sv.heroes[i].heroHealth}  " +
+                $"A:{JsonSave.jsonSave.sv.heroes[i].heroAttack}  " +
+                $"AS:{JsonSave.jsonSave.sv.heroes[i].heroAttackSpeed}";
         }
         playButton.onClick.AddListener(Play);
     }
@@ -24,7 +36,6 @@ public class UIManager : MonoBehaviour
         {
             if (GameManager.manager.myHeroes[i] == null)
             {
-                Debug.Log("sadsad");
                 return;
             }
         }

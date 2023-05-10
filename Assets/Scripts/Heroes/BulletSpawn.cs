@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonFondler : MonoBehaviour
+public class BulletSpawn : MonoBehaviour
 {
-    public static CannonFondler cannon;
+    public static BulletSpawn bulletSpawn;
     public GameObject bullet;
     Animator anim;
     private void Awake()
     {
-        cannon = this;
+        bulletSpawn = this;
         anim = GetComponent<Animator>();
     }
     public void EnemyAttack()
@@ -20,6 +18,11 @@ public class CannonFondler : MonoBehaviour
             anim.SetBool("Attack", true);
             BulletsInvoke();
         }
+        if (hit.collider == null)
+        {
+            anim.SetBool("Attack", false);
+            InvokeStop();
+        }
     }
     void BulletsInvoke()
     {
@@ -28,5 +31,9 @@ public class CannonFondler : MonoBehaviour
     void Bullets()
     {
         Instantiate(bullet, transform.position + Vector3.right * .25f, Quaternion.identity, transform);
+    }
+    public void InvokeStop()
+    {
+        CancelInvoke();
     }
 }

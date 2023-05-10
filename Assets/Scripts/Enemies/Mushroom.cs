@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mushroom : MonoBehaviour
@@ -14,7 +13,7 @@ public class Mushroom : MonoBehaviour
     void Start()
     {
         anim.SetBool("Run", true);
-        gameObject.transform.DOMoveX(-6.75f, 5).OnComplete(
+        gameObject.transform.DOMoveX(-6.75f, 5).SetEase(Ease.Linear).OnComplete(
             () =>
             {
                 anim.SetBool("AttackState", true);
