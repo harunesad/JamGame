@@ -7,6 +7,7 @@ public class BulletControl : MonoBehaviour
     GameObject parent;
     float attack;
     float attackSpeed;
+    public float enemyHealth;
     void Start()
     {
         parent = transform.parent.gameObject;
@@ -28,8 +29,16 @@ public class BulletControl : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
+            for (int i = 0; i < EnemiesControl.enemiesControl.enemiesInfo.Count; i++)
+            {
+                if (collision.gameObject.name == EnemiesControl.enemiesControl.enemiesInfo[i].enemyName)
+                {
+                    enemyHealth = EnemiesControl.enemiesControl.enemiesInfo[i].monsterHealth;
+                }
+            }
+
             Image healthBar = collision.gameObject.GetComponentInChildren<Image>();
-            healthBar.fillAmount -= (attack / 100);
+            healthBar.fillAmount -= (1 - (enemyHealth - attack) / 100);
             collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
             if (healthBar.fillAmount == 0)
             {

@@ -6,6 +6,7 @@ public class EnemiesControl : MonoBehaviour
 {
     public static EnemiesControl enemiesControl;
     public List<GameObject> enemies;
+    public List<EnemyInfo> enemiesInfo = new List<EnemyInfo>();
     private void Awake()
     {
         enemiesControl = this;
@@ -25,7 +26,7 @@ public class EnemiesControl : MonoBehaviour
             enemies[index].gameObject.SetActive(true);
             enemies.RemoveAt(index);
         }
-        if (enemyCount == 0)
+        else if (enemyCount == 0)
         {
             int levelCount = PlayerPrefs.GetInt("Level");
             levelCount++;
@@ -37,4 +38,11 @@ public class EnemiesControl : MonoBehaviour
             GameManager.manager.myHeroes[i].GetComponent<BulletSpawn>().EnemyAttack();
         }
     }
+}
+[System.Serializable]
+public class EnemyInfo
+{
+    public string enemyName;
+    public float monsterHealth;
+    public float attack;
 }
