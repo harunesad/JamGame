@@ -2,14 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager uý;
     [SerializeField] List<TextMeshProUGUI> heroesName;
     [SerializeField] Button playButton;
+    public Button restartButton;
     [SerializeField] Text levelText;
     string levelKey = "Level";
     public GameObject heroesPanel;
+    private void Awake()
+    {
+        uý = this;
+    }
     void Start()
     {
         if (PlayerPrefs.HasKey(levelKey))
@@ -29,6 +36,7 @@ public class UIManager : MonoBehaviour
                 $"AS:{JsonSave.jsonSave.sv.heroes[i].heroAttackSpeed}";
         }
         playButton.onClick.AddListener(Play);
+        restartButton.onClick.AddListener(Restart);
     }
     public void Play()
     {
@@ -41,5 +49,9 @@ public class UIManager : MonoBehaviour
         }
         heroesPanel.SetActive(false);
         EnemiesControl.enemiesControl.InvokeStart();
+    }
+    void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -6,7 +6,7 @@ public class EnemiesControl : MonoBehaviour
 {
     public static EnemiesControl enemiesControl;
     public List<GameObject> enemies;
-    public List<EnemyInfo> enemiesInfo = new List<EnemyInfo>();
+    public List<LevelInfo> enemiesInfo = new List<LevelInfo>();
     private void Awake()
     {
         enemiesControl = this;
@@ -38,6 +38,11 @@ public class EnemiesControl : MonoBehaviour
             GameManager.manager.myHeroes[i].GetComponent<BulletSpawn>().EnemyAttack();
         }
     }
+}
+[System.Serializable]
+public class LevelInfo
+{
+    public List<EnemyInfo> enemyInfo = new List<EnemyInfo>();
 }
 [System.Serializable]
 public class EnemyInfo

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletSpawn : MonoBehaviour
 {
@@ -30,6 +31,13 @@ public class BulletSpawn : MonoBehaviour
     }
     void Bullets()
     {
+        Image healthBar = GetComponentInChildren<Image>();
+        if (healthBar.fillAmount == 0)
+        {
+            UIManager.uý.restartButton.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            //Destroy(gameObject);
+        }
         Instantiate(bullet, transform.position + Vector3.right * .25f, Quaternion.identity, transform);
     }
     public void InvokeStop()

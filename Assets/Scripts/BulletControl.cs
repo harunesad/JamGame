@@ -29,11 +29,11 @@ public class BulletControl : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            for (int i = 0; i < EnemiesControl.enemiesControl.enemiesInfo.Count; i++)
+            for (int i = 0; i < EnemiesControl.enemiesControl.enemiesInfo[1].enemyInfo.Count; i++)
             {
-                if (collision.gameObject.name == EnemiesControl.enemiesControl.enemiesInfo[i].enemyName)
+                if (collision.gameObject.name == EnemiesControl.enemiesControl.enemiesInfo[1].enemyInfo[i].enemyName)
                 {
-                    enemyHealth = EnemiesControl.enemiesControl.enemiesInfo[i].monsterHealth;
+                    enemyHealth = EnemiesControl.enemiesControl.enemiesInfo[PlayerPrefs.GetInt("Level")].enemyInfo[i].monsterHealth;
                 }
             }
 
