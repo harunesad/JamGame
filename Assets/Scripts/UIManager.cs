@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager uý;
-    [SerializeField] List<TextMeshProUGUI> heroesName;
+    [SerializeField] List<TextMeshProUGUI> heroesHealth, heroesAttack, heroesAttackSpeed;
     [SerializeField] Button playButton;
     public Button restartButton;
     [SerializeField] Text levelText;
@@ -28,12 +28,11 @@ public class UIManager : MonoBehaviour
             levelText.text = "Level 1";
             PlayerPrefs.SetInt(levelKey, 1);
         }
-        for (int i = 0; i < heroesName.Count; i++)
+        for (int i = 0; i < heroesHealth.Count; i++)
         {
-            heroesName[i].text = $"{JsonSave.jsonSave.sv.heroes[i].heroName} " +
-                $"\n H:{JsonSave.jsonSave.sv.heroes[i].heroHealth}  " +
-                $"A:{JsonSave.jsonSave.sv.heroes[i].heroAttack}  " +
-                $"AS:{JsonSave.jsonSave.sv.heroes[i].heroAttackSpeed}";
+            heroesHealth[i].text = "H: " + JsonSave.jsonSave.sv.heroes[i].heroHealth;
+            heroesAttack[i].text = "H: " + JsonSave.jsonSave.sv.heroes[i].heroAttack;
+            heroesAttackSpeed[i].text = "H: " + JsonSave.jsonSave.sv.heroes[i].heroAttackSpeed;
         }
         playButton.onClick.AddListener(Play);
         restartButton.onClick.AddListener(Restart);
