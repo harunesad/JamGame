@@ -12,4 +12,6 @@ public class HeroesProperty
     public float heroHealth;
     public float heroAttack;
     public float heroAttackSpeed;
+    public float level;
+    public float levelCoin;
 }

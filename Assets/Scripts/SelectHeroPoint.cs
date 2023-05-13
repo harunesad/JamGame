@@ -10,11 +10,10 @@ public class SelectHeroPoint : MonoBehaviour
             {
                 if (gameObject.name == GameManager.manager.points[i].name)
                 {
-                    GameManager.manager.pointCount = i;
+                    GameManager.manager.pointIndex = i;
                 }
             }
             GameManager.manager.heroPoint = gameObject;
-            Debug.Log(GameManager.manager.heroPoint);
             GameManager.manager.SpawnObject();
             GameManager.manager.hero = null;
         }

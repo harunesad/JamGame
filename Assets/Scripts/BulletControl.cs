@@ -36,18 +36,19 @@ public class BulletControl : MonoBehaviour
                     enemyHealth = EnemiesControl.enemiesControl.enemiesInfo[PlayerPrefs.GetInt("Level")].enemyInfo[i].monsterHealth;
                 }
             }
-
             Image healthBar = collision.gameObject.GetComponentInChildren<Image>();
             healthBar.fillAmount -= (1 - (enemyHealth - attack) / 100);
-            collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
             if (healthBar.fillAmount == 0)
             {
+                UIManager.uý.ScoreAdd();
                 collision.gameObject.GetComponent<Animator>().SetTrigger("Death");
-                Destroy(collision.gameObject, .35f);
+                Destroy(collision.gameObject, .4f);
             }
-            gameObject.GetComponent<Collider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            Destroy(gameObject, .4f);
+            else
+            {
+                collision.gameObject.GetComponent<Animator>().SetTrigger("Hit");
+            }
+            Destroy(gameObject);
         }
     }
 }

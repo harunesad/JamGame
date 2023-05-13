@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Skeleton : MonoBehaviour
 {
     Animator anim;
-    public int attackCount = 0;
-    public float attack;
-    public float heroHealth;
-    public GameObject hero;
+    int attackCount = 0;
+    float attack;
+    float heroHealth;
+    GameObject hero;
     int levelId;
     private void Awake()
     {
@@ -19,7 +19,6 @@ public class Skeleton : MonoBehaviour
     {
         levelId = PlayerPrefs.GetInt("Level");
         attack = EnemiesControl.enemiesControl.enemiesInfo[levelId].enemyInfo[0].attack;
-
         for (int i = 0; i < GameManager.manager.myHeroes.Count; i++)
         {
             if (transform.position.y == GameManager.manager.myHeroes[i].transform.position.y)
@@ -41,7 +40,6 @@ public class Skeleton : MonoBehaviour
     IEnumerator SuperAttack()
     {
         Image healthBar = hero.GetComponentInChildren<Image>();
-
         if (attackCount == 5)
         {
             anim.SetFloat("Attack", 0);

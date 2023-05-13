@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> heroes;
     public List<bool> isEmpty;
     public List<Transform> points;
-    public int pointCount;
+    public int pointIndex;
     public LayerMask enemyLayer;
     private void Awake()
     {
@@ -29,15 +29,15 @@ public class GameManager : MonoBehaviour
                         return;
                     }
                 }
-                if (isEmpty[pointCount] == true)
+                if (isEmpty[pointIndex] == true)
                 {
-                    myHeroes[pointCount].SetActive(false);
+                    myHeroes[pointIndex].SetActive(false);
                 }
                 heroes[i].transform.position = heroPoint.transform.position;
                 heroes[i].SetActive(true);
-                myHeroes[pointCount] = heroes[i];
+                myHeroes[pointIndex] = heroes[i];
             }
         }
-        isEmpty[pointCount] = true;
+        isEmpty[pointIndex] = true;
     }
 }

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class FlyingEye : MonoBehaviour
 {
     Animator anim;
-    public int attackCount = 0;
-    public float attack;
-    public float heroHealth;
-    public GameObject hero;
+    int attackCount = 0;
+    float attack;
+    float heroHealth;
+    GameObject hero;
     int levelId;
     private void Awake()
     {
@@ -19,7 +19,6 @@ public class FlyingEye : MonoBehaviour
     {
         levelId = PlayerPrefs.GetInt("Level");
         attack = EnemiesControl.enemiesControl.enemiesInfo[levelId].enemyInfo[0].attack;
-
         for (int i = 0; i < GameManager.manager.myHeroes.Count; i++)
         {
             if (transform.position.y == GameManager.manager.myHeroes[i].transform.position.y)
@@ -28,7 +27,6 @@ public class FlyingEye : MonoBehaviour
                 hero = GameManager.manager.myHeroes[i];
             }
         }
-
         gameObject.transform.DOMoveX(-6.75f, 5).SetEase(Ease.Linear).OnComplete(
             () =>
             {

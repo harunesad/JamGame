@@ -6,6 +6,5 @@ public class SelectHero : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         GameManager.manager.hero = gameObject;
-        Debug.Log(GameManager.manager.hero);
     }
 }

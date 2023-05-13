@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BulletSpawn : MonoBehaviour
 {
     public static BulletSpawn bulletSpawn;
-    public GameObject bullet;
+    [SerializeField] GameObject bullet;
     Animator anim;
     private void Awake()
     {
@@ -36,7 +36,6 @@ public class BulletSpawn : MonoBehaviour
         {
             UIManager.uý.restartButton.gameObject.SetActive(true);
             Time.timeScale = 0;
-            //Destroy(gameObject);
         }
         Instantiate(bullet, transform.position + Vector3.right * .25f, Quaternion.identity, transform);
     }
