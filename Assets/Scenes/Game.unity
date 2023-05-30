@@ -2053,6 +2053,71 @@ MonoBehaviour:
     - enemyName: Skeleton
       monsterHealth: 100
       attack: 22
+  - enemyInfo:
+    - enemyName: FlyingEye
+      monsterHealth: 100
+      attack: 25
+    - enemyName: Goblin
+      monsterHealth: 100
+      attack: 27
+    - enemyName: Mushroom
+      monsterHealth: 100
+      attack: 22
+    - enemyName: Skeleton
+      monsterHealth: 100
+      attack: 24
+  - enemyInfo:
+    - enemyName: FlyingEye
+      monsterHealth: 100
+      attack: 27
+    - enemyName: Goblin
+      monsterHealth: 100
+      attack: 29
+    - enemyName: Mushroom
+      monsterHealth: 100
+      attack: 24
+    - enemyName: Skeleton
+      monsterHealth: 100
+      attack: 26
+  - enemyInfo:
+    - enemyName: FlyingEye
+      monsterHealth: 100
+      attack: 29
+    - enemyName: Goblin
+      monsterHealth: 100
+      attack: 31
+    - enemyName: Mushroom
+      monsterHealth: 100
+      attack: 26
+    - enemyName: Skeleton
+      monsterHealth: 100
+      attack: 28
+  - enemyInfo:
+    - enemyName: FlyingEye
+      monsterHealth: 100
+      attack: 31
+    - enemyName: Goblin
+      monsterHealth: 100
+      attack: 33
+    - enemyName: Mushroom
+      monsterHealth: 100
+      attack: 28
+    - enemyName: Skeleton
+      monsterHealth: 100
+      attack: 30
+  - enemyInfo:
+    - enemyName: FlyingEye
+      monsterHealth: 100
+      attack: 33
+    - enemyName: Goblin
+      monsterHealth: 100
+      attack: 35
+    - enemyName: Mushroom
+      monsterHealth: 100
+      attack: 30
+    - enemyName: Skeleton
+      monsterHealth: 100
+      attack: 32
 --- !u!1 &627911811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7467,7 +7532,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 9.5, y: -34.99994}
+  m_AnchoredPosition: {x: 9.5, y: -35}
   m_SizeDelta: {x: 151, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835938474
@@ -8419,7 +8484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19362131, y: 0.3227778}
   m_AnchorMax: {x: 0.8153787, y: 0.40722224}
-  m_AnchoredPosition: {x: -9.5, y: -2.9900055}
+  m_AnchoredPosition: {x: -9.5, y: -2.9899902}
   m_SizeDelta: {x: -895, y: -31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1976837401
@@ -8691,7 +8756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.31081188, y: 0.19851848}
   m_AnchorMax: {x: 0.68, y: 0.2792593}
-  m_AnchoredPosition: {x: 9, y: 1.3299866}
+  m_AnchoredPosition: {x: 9, y: 1.3300171}
   m_SizeDelta: {x: -590, y: -57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013150416
